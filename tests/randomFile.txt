@@ -7,8 +7,8 @@
 """
 """ double quote docstring """
 ''' single quote docstring '''
-s = 'string' """ docstring next to code """  
-s = ' testing """ double docstring notation in a string """. '
+s = 'string' """ docstring next to code """   
+s = ' testing """ double docstring notation in a string """. ' 
 s = " testing ''' single docstring notation in a string '''. "
 
 #comment by itself
