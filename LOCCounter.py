@@ -18,9 +18,6 @@ class LOCCounter:
 		self.file = file
 		calcLOC()
 
-	#if __name__ == '__main__':
-		#main()
-		
 	self.__source_loc = 0
 	self.__single_comment_loc = 0 
 	self.__single_docstring_loc = 0 
