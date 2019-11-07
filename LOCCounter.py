@@ -25,13 +25,13 @@ class LOCCounter:
 		self.file = file
 		__calcLOC()
 
-	self.__source_loc = 0
-	self.__single_comment_loc = 0 
-	self.__single_docstring_loc = 0 
-	self.__double_docstring_loc = 0 
-	self.__total_comments_loc = 0 
-	self.__blank_loc = 0 
-	self.__total_line_count = 0
+	__source_loc = 0
+	__single_comment_loc = 0 
+	__single_docstring_loc = 0 
+	__double_docstring_loc = 0 
+	__total_comments_loc = 0 
+	__blank_loc = 0 
+	__total_line_count = 0
 	
 	def getLOC(self):
 		""" Returns all the LOC metrics as a dict
@@ -135,7 +135,7 @@ class LOCCounter:
 		Returns:
 			 int: source_loc
 		"""
-			return self.__source_loc;
+		return self.__source_loc;
 			
 	def getSingleCommentsLOC(self):
 		""" 
@@ -144,7 +144,7 @@ class LOCCounter:
 		Returns:
 			 int: self.__single_comment_loc
 		"""
-			return self.__single_comment_loc;
+		return self.__single_comment_loc;
 			
 	def getSingleDocstringLOC(self):
 		""" 
@@ -153,7 +153,7 @@ class LOCCounter:
 		Returns:
 			 int: self.__single_docstring_loc
 		"""
-			return self.__single_docstring_loc;
+		return self.__single_docstring_loc;
 			
 	def getDoubleDocstringLOC(self):
 		""" 
@@ -162,7 +162,7 @@ class LOCCounter:
 		Returns:
 			 int: self.__double_docstring_loc
 		"""
-			return self.__double_docstring_loc;
+		return self.__double_docstring_loc;
 			
 	def getTotalCommentsLOC(self):
 		""" 
@@ -171,7 +171,7 @@ class LOCCounter:
 		Returns:
 			 int: self.__total_comments_loc
 		"""
-			return self.__total_comments_loc;
+		return self.__total_comments_loc;
 			
 	def getBlankLinesLOC(self):
 		""" 
@@ -180,7 +180,7 @@ class LOCCounter:
 		Returns:
 			 int: self.__blank_loc
 		"""
-			return self.__blank_loc;
+		return self.__blank_loc;
 			
 	def getTotalLineCountLOC(self):
 		""" 
@@ -189,4 +189,4 @@ class LOCCounter:
 		Returns:
 			 int: self.__total_line_count
 		"""
-			return self.__total_line_count;
+		return self.__total_line_count;
