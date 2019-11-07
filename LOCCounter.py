@@ -9,12 +9,14 @@ class LOCCounter:
         file (str): File path to .py file that will be analyzed
 
 	Methods:
-		getLOC(): Calculates and returns LOC
+		getLOC(): Returns all the LOC metrics 
+		calcLOC(): Calculates and and stores LOC metrics
 		choseRegexGroups(match): helper function to filter regex matches
 	"""
 	
 	def __init__(self, file):
 		self.file = file
+		calcLOC()
 
 	#if __name__ == '__main__':
 		#main()
@@ -26,9 +28,9 @@ class LOCCounter:
 	self.__total_comments_loc = 0 
 	self.__blank_loc = 0 
 	self.__total_line_count = 0
-		
+	
 	def getLOC(self):
-		""" Opens file, calculates LOC metrics
+		""" Returns all the LOC metrics as a dict
 		
 		Args:
 		
@@ -43,6 +45,20 @@ class LOCCounter:
 				blank_loc = 0, #Anything that consists of string.whitespace
 				total_line_count, #No distinguishing - just the number of lines
 			}
+		"""
+
+		return {"source_loc": self.__source_loc, "single_comments_loc": self.__single_comments_loc,
+		"single_docstring_loc": single_docstring_loc, "double_docstring_loc": self.__double_docstring_loc,
+		"total_comments_loc": self.__total_comments_loc, "blank_loc": self.__blank_loc,
+		"total_line_count": self.__total_line_count}
+		
+	def calcLOC(self):
+		""" Opens file, calculates and stores LOC metrics in private variables
+		
+		Args:
+		
+		Returns:
+			
 		"""
 
 		with open(self.file, "r") as fp:
@@ -91,11 +107,6 @@ class LOCCounter:
 		#print ("total_comments_loc: " + str(self.__total_comments_loc))
 		#print ("blank_loc: " + str(self.__blank_loc))
 		#print ("total_line_count: " + str(self.__total_line_count))
-		
-		return {"source_loc": self.__source_loc, "single_comments_loc": self.__single_comments_loc,
-		"single_docstring_loc": single_docstring_loc, "double_docstring_loc": self.__double_docstring_loc,
-		"total_comments_loc": self.__total_comments_loc, "blank_loc": self.__blank_loc,
-		"total_line_count": self.__total_line_count}
 		
 	def choseRegexGroups(self, match):
 		""" Helper function used to filter docstrings when getLOC() removes quotes
