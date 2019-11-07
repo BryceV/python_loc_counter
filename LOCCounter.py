@@ -12,11 +12,18 @@ class LOCCounter:
 		getLOC(): Returns all the LOC metrics 
 		calcLOC(): Calculates and and stores LOC metrics
 		choseRegexGroups(match): helper function to filter regex matches
+		getSourceLOC(): returns source line count as an int
+		getSingleCommentsLOC(): returns single comment coubt as an int
+		getSingleDocstringLOC(): returns single quote docstring count as an int
+		getDoubleDocstringLOC(): returns double quote docstring count as an int
+		getTotalCommentsLOC(): returns the summmation of all comment metrics as an int
+		getBlankLinesLOC(): returns blank line count as an int
+		getTotalLineCountLOC(): returns line count as an int
 	"""
 	
 	def __init__(self, file):
 		self.file = file
-		calcLOC()
+		__calcLOC()
 
 	self.__source_loc = 0
 	self.__single_comment_loc = 0 
@@ -49,7 +56,7 @@ class LOCCounter:
 		"total_comments_loc": self.__total_comments_loc, "blank_loc": self.__blank_loc,
 		"total_line_count": self.__total_line_count}
 		
-	def calcLOC(self):
+	def __calcLOC(self):
 		""" Opens file, calculates and stores LOC metrics in private variables
 		
 		Args:
@@ -73,7 +80,7 @@ class LOCCounter:
 					continue
 				
 				#Remove quotes for some comment analysis
-				l = re.sub(r"(\"\"\")|(''')|((\"|').*?\4)", choseRegexGroups, line)
+				l = re.sub(r"(\"\"\")|(''')|((\"|').*?\4)", __choseRegexGroups, line)
 				#print(repr(l))
 				
 				inDoubleDoc = inDoubleDoc if (l.count('"""')%2 == 0) else not inDoubleDoc
@@ -105,7 +112,7 @@ class LOCCounter:
 		#print ("blank_loc: " + str(self.__blank_loc))
 		#print ("total_line_count: " + str(self.__total_line_count))
 		
-	def choseRegexGroups(self, match):
+	def __choseRegexGroups(self, match):
 		""" Helper function used to filter docstrings when getLOC() removes quotes
 		
 		Args:
@@ -120,3 +127,66 @@ class LOCCounter:
 			return m 
 		else:
 			return ''
+			
+	def getSourceLOC(self):
+		""" 
+		Args:
+		
+		Returns:
+			 int: source_loc
+		"""
+			return self.__source_loc;
+			
+	def getSingleCommentsLOC(self):
+		""" 
+		Args:
+		
+		Returns:
+			 int: self.__single_comment_loc
+		"""
+			return self.__single_comment_loc;
+			
+	def getSingleDocstringLOC(self):
+		""" 
+		Args:
+		
+		Returns:
+			 int: self.__single_docstring_loc
+		"""
+			return self.__single_docstring_loc;
+			
+	def getDoubleDocstringLOC(self):
+		""" 
+		Args:
+		
+		Returns:
+			 int: self.__double_docstring_loc
+		"""
+			return self.__double_docstring_loc;
+			
+	def getTotalCommentsLOC(self):
+		""" 
+		Args:
+		
+		Returns:
+			 int: self.__total_comments_loc
+		"""
+			return self.__total_comments_loc;
+			
+	def getBlankLinesLOC(self):
+		""" 
+		Args:
+		
+		Returns:
+			 int: self.__blank_loc
+		"""
+			return self.__blank_loc;
+			
+	def getTotalLineCountLOC(self):
+		""" 
+		Args:
+		
+		Returns:
+			 int: self.__total_line_count
+		"""
+			return self.__total_line_count;
