@@ -23,7 +23,7 @@ class LOCCounter:
 	
 	def __init__(self, file):
 		self.file = file
-		__calcLOC()
+		self.__calcLOC()
 
 	__source_loc = 0
 	__single_comment_loc = 0 
@@ -51,8 +51,8 @@ class LOCCounter:
 			}
 		"""
 
-		return {"source_loc": self.__source_loc, "single_comments_loc": self.__single_comments_loc,
-		"single_docstring_loc": single_docstring_loc, "double_docstring_loc": self.__double_docstring_loc,
+		return {"source_loc": self.__source_loc, "single_comments_loc": self.__single_comment_loc,
+		"single_docstring_loc": self.__single_docstring_loc, "double_docstring_loc": self.__double_docstring_loc,
 		"total_comments_loc": self.__total_comments_loc, "blank_loc": self.__blank_loc,
 		"total_line_count": self.__total_line_count}
 		
@@ -80,7 +80,7 @@ class LOCCounter:
 					continue
 				
 				#Remove quotes for some comment analysis
-				l = re.sub(r"(\"\"\")|(''')|((\"|').*?\4)", __choseRegexGroups, line)
+				l = re.sub(r"(\"\"\")|(''')|((\"|').*?\4)", self.__choseRegexGroups, line)
 				#print(repr(l))
 				
 				inDoubleDoc = inDoubleDoc if (l.count('"""')%2 == 0) else not inDoubleDoc
