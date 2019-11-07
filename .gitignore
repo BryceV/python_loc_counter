@@ -1,0 +1,7 @@
+.idea/
+build/
+dist/
+docs/_build/
+MANIFEST
+.coverage
+coverage.xml
