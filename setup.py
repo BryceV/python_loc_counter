@@ -8,7 +8,7 @@ setup(
   author = 'Bryce Vonilten',
   author_email = 'ki6bpd@gmail.com',
   url = 'https://github.com/BryceV/python_loc_counter', 
-  download_url = '',
+  download_url = 'https://github.com/BryceV/python_loc_counter/archive/v0.1.tar.gz',
   keywords = ['python', 'lines of code', 'loc'],
   install_requires=[ ],
   classifiers=[
