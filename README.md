@@ -32,7 +32,6 @@ def main():
 This will print a dictionary that might look something like:
 ```sh
 {
-    total_repo_errors:208
     total_src_loc:1757
     total_single_comments_loc:75
     total_single_docstrings_loc:0
