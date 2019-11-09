@@ -1,10 +1,16 @@
 from distutils.core import setup
+import setuptools
+
+with open("README.md", "r") as fh:
+    long_description = fh.read()
+
 setup(
   name = 'python_loc_counter',
   packages = ['python_loc_counter'],
   version = '0.1',
   license='MIT', 
   description = 'Get LOC metrics for python scripts',
+  long_description=long_description,
   author = 'Bryce Vonilten',
   author_email = 'ki6bpd@gmail.com',
   url = 'https://github.com/BryceV/python_loc_counter', 
