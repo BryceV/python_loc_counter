@@ -12,6 +12,7 @@ setup(
   license='MIT', 
   description = 'Get LOC metrics for python scripts',
   long_description=long_description,
+  long_description_content_type='text/markdown',
   author = 'Bryce Vonilten',
   author_email = 'ki6bpd@gmail.com',
   url = 'https://github.com/BryceV/python_loc_counter', 
